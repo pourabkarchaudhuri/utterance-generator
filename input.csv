@@ -1,0 +1,3 @@
+Utterances,Intent Name
+I want to travel to Delhi,BookingIntent
+Can I get a ticket for Delhi?,BookingIntent

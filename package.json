@@ -1,0 +1,20 @@
+{
+  "name": "utterance-generator",
+  "version": "1.0.0",
+  "description": "Utterance Generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Pourab Karchaudhuri",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "csvtojson": "^1.1.7",
+    "express": "^4.15.3",
+    "natural": "^0.5.4",
+    "pos": "^0.4.2",
+    "request": "^2.81.0",
+    "wordnet-db": "^3.1.6"
+  }
+}
