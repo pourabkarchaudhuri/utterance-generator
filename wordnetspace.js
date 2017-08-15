@@ -23,7 +23,7 @@ module.exports = {
               //console.log(result.pos);
              // console.log(result.gloss);
           });
-          console.log("Synonyms Inside Search : "+synonymList);
+          //console.log("Synonyms Inside Search : "+synonymList);
           callback(synonymList);
       });
     }

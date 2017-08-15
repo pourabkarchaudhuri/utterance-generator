@@ -1,3 +1,19 @@
-Utterances,Intent Name
-I want to travel to Delhi,BookingIntent
-Can I get a ticket for Delhi?,BookingIntent
+subject_prefix,noun,lv,adjective,keyword
+The,tap water,is,awefully,smelly
+All of the,water,has been,profusely,
+Most of the,house water,will be,pretty,
+Some of the,incoming water,could be,extremely,
+My,outgoing water,might be,awefully,
+Your,feed water,may be,severly,
+His,entry water,shall be,intricately,
+Her,exit water,would be,confusingly,
+Their,drinking water,,truly,
+Our,,,falsely,
+Everybody's,,,,
+Almost all of the,,,,
+That,,,,
+I knew the,,,,
+We knew that the,,,,
+She knew that the,,,,
+He knew that the,,,,
+They knew that the,,,,

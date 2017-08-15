@@ -177,6 +177,107 @@ module.exports={
         callback(generatedListComplete);
     });
     //callback(generatedList);
-  }
+  },
+    'RandomizedGenerator': function(passingjson, callback){
+      //console.log("Test Sample : "+JSON.stringify(passingjson));
+      var articles=[];
+      var nouns=[];
+      var lv=[];
+      var adjectives=[];
+      var keyword=[];
+
+      for(var m=0;m<passingjson.length-1;m++){
+        if(passingjson[m].subject_prefix!=""){
+          articles.push(passingjson[m].subject_prefix);
+        }
+        if(passingjson[m].noun!=""){
+          nouns.push(passingjson[m].noun);
+        }
+        if(passingjson[m].lv!=""){
+          lv.push(passingjson[m].lv);
+        }
+        if(passingjson[m].adjective!=""){
+          adjectives.push(passingjson[m].adjective);
+        }
+        if(passingjson[m].keyword!=""){
+          keyword.push(passingjson[m].keyword);
+        }
+      }
+      // console.log(articles);
+      // console.log(nouns);
+      // console.log(lv);
+      // console.log(adjectives);
+      // console.log(keyword);
+
+      // var articles = "The,All of the,Most of the,Some of the,My,Your,His,Her,Their,Our,Everybody's,Almost all of the,That,I knew that the,We knew that the,She knew that the,He knew that the,They knew that the".split(",");
+      // //The Subject Prefix Word
+      // var nouns = "water".split(",");
+      // //The Subject Word
+      // var lv = "was,had been,will be,could be,might be,is,may be,shall be,would be,has been,".split(",");
+      // //Tense Context
+      // var adjectives = "pretty,extremely,awefully,severly,intricately,confusingly,truly,falsely".split(",");
+      // //Adjectives
+      // var keyword = "smelly".split(",");
+      var x;
+
+      //var ta = articles[Math.floor(Math.random() * articles.length)];
+      //var tb = nouns[Math.floor(Math.random() * nouns.length)];
+      console.log("\nAuthor : Pourab Karchaudhuri\n-----------------------------\n");
+      var final;
+      var n=28;
+
+      var jsonify=[];
+      var end = [];
+      var afterGenerator=[];
+      var complete ={
+        "success":1,
+        "results":{
+          sentences : afterGenerator
+        }
+      }
+      for (x = 0; x < n; x++) {
+        var a = articles[Math.floor(Math.random() * articles.length)];
+        var b = nouns[Math.floor(Math.random() * nouns.length)];
+        var c = lv[Math.floor(Math.random() * lv.length)];
+        var d = adjectives[Math.floor(Math.random() * adjectives.length)];
+        var e = keyword[Math.floor(Math.random() * keyword.length)]
+        final = a + " " + b + " " + c + " " + d;
+        //console.log(final);
+        jsonify.push(final);
+      }
+      //console.log(jsonify);
+      global.jsonify = jsonify;
+      //Now to put keyword synonyms
+
+      var finalResult = wordnetEntry.wordSearch(e,function(finalResult){
+          //console.log(finalResult);
+          var successfactor = 1;
+          finalResult.push(e);
+          //var afterGenerator = [];
+          //console.log("After Entry : "+global.jsonify);
+          var sentenceCount = 0;
+          console.log(global.jsonify.length+" sentences generated from input file");
+          console.log(finalResult.length+" synonyms for '"+e+"' have been found");
+
+          for(var i=0;i<global.jsonify.length;i++){
+            //console.log("Current sentence : "+global.jsonify[i]);
+            for(var j=0;j<finalResult.length;j++){
+                //console.log("Special")
+                var end = global.jsonify[i] + " " + finalResult[j];
+                afterGenerator.push(end);
+          }
+        }
+        //console.log("Generator Funtion Ended");
+        //console.log(JSON.stringify(afterGenerator))
+          //speechsynth=speechsynth+completeSentence[i];
+          //var spacedWords = result.synonyms[i].replace(/_/g, " ");
+          //console.log("Final : "+speechsynth);
+          callback(complete);
+      });
+
+
+
+    }
+
 
 }
